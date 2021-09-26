@@ -1,0 +1,18 @@
+
+<h1>Welcome</h1>
+{% block content %} {% load tweet_tags %} {% for tweet in tweets %}
+<div class="mdl-card__media">
+  {% autoescape off %}{% tweet_tags tweet %}{% endautoescape %} {% endfor %} {% endblock %}
+  <script
+    async
+    src="//embed.redditmedia.com/widgets/platform.js"
+    charset="UTF-8"
+  ></script>
+
+  <script
+    async
+    src="https://platform.twitter.com/widgets.js"
+    charset="utf-8"
+  ></script>
+</div>
+{% comment %} # how to pass in context to an href {% endcomment %} 

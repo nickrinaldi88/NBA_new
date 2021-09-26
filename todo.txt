@@ -1,0 +1,164 @@
+6/15/21
+
+-In services.py create a Post object through Post.objects create for each object you receive. 
+-Find out how to clear out posts
+-Find out why posts aren't printing to template
+
+-Add subscription service 
+    -Add user ability and ability to login 
+    -Will have to create User model to store data in DB 
+-Add tool to compare two players at the same time fetch data from bball reference 
+    -Follow this: https://getbootstrap.com/docs/4.0/components/forms/
+-Maybe add ticker of latest news? (Top posts on reddit?)  
+-Have background script run every specific interval to populate the DB 
+-Figure out way to load page quicker, takes up a lot of memory. Maybe refresh DB with newest posts, 
+delete old?
+
+8/21/21
+-Learn Pagination 
+-https://simpleisbetterthancomplex.com/tutorial/2017/03/13/how-to-create-infinite-scroll-with-django.html
+-Learn how to implement ticker
+-https://medium.com/@auxyz/creating-a-cryptocoin-price-ticker-with-django-2-0-part-one-2b628deb85d9
+
+
+
+8/22/21
+-Troubleshoot current error, why twitter and reddit elements won't load 
+
+
+
+
+
+6/26/21
+-Have our HTML forms activate python functions which will scrape specific data?
+-Parse BBall ref scraper to see how that code is done
+
+6/30/21
+-Check stackoverflow 
+-Work on inner functionality of player comparison tool using code from bball ref 
+lib on github, making your own functions
+
+7/1/21
+-Read about Pagination
+
+-Work on inner functionality of player comparison tool using code from bball ref 
+lib on github, making your own functions
+
+
+7/8/21
+-How to have button execute python script to fetch data.
+    *Have form submit a post request. Intercept the post request in urls.py, where 
+    function would be called. 
+    -Return value of function shouldbe displayed on HTML template. 
+    # Refer to this post: https://stackoverflow.com/questions/54438473/how-to-execute-file-py-on-html-button-press-using-django
+-Once data for player is fetched, insert into DB
+
+
+7/29/21
+-We have our main function from bball ref parser in our view. We're passing in our player and season variables,
+however we're receiving a type error that our function only takes 1 argument. We're passing in 4, and it should be taking 4, so try to troubleshoot this issue next. 
+
+
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+TODO:
+-Have a script fetching twitter and reddit API data over intervals of time. (Service.py)
+-This script needs to post this data to our database (models.py). Otherwise, we're just posting the raw API data onto our page.
+-Use tech with tim's react tutorial to design the frontend
+-Then create user authentication(What should the user be able to do?)
+
+
+-How our program should work:
+    -User sends GET request to database to fetch posts which will appear on page. 
+    -We store that data, being updated constantly. We're sending get requests to twitter and reddit, but
+        it's different from the user sending a get request to us. 
+    -Send GET Request to Twitter and Reddit to fetch data.
+    -Store data in database
+    -Send POST request of Data to front end
+
+
+-Will have background task fetching the api data. Can we post this data into our database?
+
+-REMINDER
+    -views.py may have some error, because we're following Tim's tutorial and its a different project than ours. We just need a user to scroll our page, we're putting the posts on their screen. They don't need to host anything. Just keep this in mind if errors show up. 
+
+1. Add scrolling-to-update functionality
+2. Combine Reddit and Twitter news into one timeline
+2. Add login/user functionality
+2a. add ability to save posts
+3. Random Stats bar (request, bball ref, etc.)
+3a. Search Bar 
+3b. Ticker at top of the page for betting odds
+4. Add more misc features
+5. Make the page pretty
+6. Handle server errors
+
+
+
+
+
+-- ON HOLD
+
+MISC Stuff
+
+////////////////////////////////////////
+
+
+-Django Newsfeed Stuff
+    -https://stackoverflow.com/questions/2128886/django-way-for-building-a-news-feed-status-update-activity-stream
+    -Also, Google.
+-Look at stream library 
+
+
+    -Add other functionality later on  
+        -Log in?
+        -Statistical connection?
+        -Forum?
+
+When we have users https://django-activity-stream.readthedocs.io/en/latest/
+
+
+4/23/21
+
+
+//////////////////
+
+
+
+Endgame work:
+
+-Handle exception cases if server goes down for both api's
+-Secure the API keys
+    -https://simpleisbetterthancomplex.com/tips/2016/11/01/django-tip-19-protecting-sensitive-information.html
+
+
+
+
+'''OVERHAUL'''
+-May collect HTML data through Models, have like Modelfields be url: site.url, etc.
+    -Model fields correspond to reponse objects
+    -Store that data. Then fetch from Database. 
+    
+-So we'll have to fetch from database and place in our view. 
+
+9/5/21
+###################### BACKEND #####################################
+# -Find more efficient way to store, load post data. Maybe change
+# api link to get less than 50 posts?
+# -Determine how posts will be loaded/displayed/stored in db
+# - Introduce celery instance to make API calls
+# Set up celery to receive tasks to run, run them outside of app logic
+# https://www.youtube.com/watch?v=b-6mEAr1m-A - Finish making heroku app for task broker - 13:00
+
+9/26/21
+-Work on project on mac to use celery, or create airflow dag to populate Database.
+-Then, use pagination to slowly load the objects onto the page. 
+
+
+##################### FrontEnd ######################################
+-Decide on a framework, React/Vue Js 
+-Decide on layout
+    -Troubleshoot css script
+-Work on ticker
+
