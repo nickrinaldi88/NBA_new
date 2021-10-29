@@ -153,7 +153,11 @@ Endgame work:
 
 9/26/21
 -Work on project on mac to use celery, or create airflow dag to populate Database.
--Then, use pagination to slowly load the objects onto the page. 
+-Then, use pagination to slowly load the objects onto the page. 2
+
+
+10/28/21
+-Deal with ubuntu console, must start server with ubuntu
 
 
 ##################### FrontEnd ######################################
